@@ -22,4 +22,10 @@ move_robot = c++/c/python 이용해서 메니퓰레이터 제어하는 코드들
 (Unable to identify any set of controllers that can actuate the specified joints 라는 에러가 발생함)
 : ros_controllers.yaml 의 controller list 가 []으로 남아있었기 때문인듯.
 참고 링크
-https://answers.ros.org/question/320990/moveit-unable-to-identify-any-set-of-controllers/
+https://answers.ros.org/question/320990/moveit-unable-to-identify-any-set-of-controllers/   
+
+
+1. roslaunch final_gazebo robotic_arm_bringup_gazebo.launch   
+
+2. roslaunch final_gazebo robotic_arm_bringup_rviz.launch   
+
