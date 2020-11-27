@@ -1,0 +1,211 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="mani1_config">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="arm_ver1">
+        <joint name="virtual_joint" />
+        <joint name="dummy_joint" />
+        <joint name="base_joint_left" />
+        <joint name="mani1_fixed" />
+        <joint name="mani1_joint1" />
+        <joint name="mani1_joint2" />
+        <joint name="mani1_joint3" />
+        <joint name="mani1_joint4" />
+        <joint name="mani1_joint5" />
+        <joint name="mani1_joint6" />
+        <joint name="mani1_joint7" />
+    </group>
+    <group name="arm_ver2">
+        <joint name="base_joint_right" />
+        <joint name="mani2_joint1" />
+        <joint name="mani2_joint2" />
+        <joint name="mani2_joint3" />
+        <joint name="mani2_joint4" />
+        <joint name="mani2_joint5" />
+        <joint name="mani2_joint6" />
+        <joint name="mani2_joint7" />
+        <joint name="virtual_joint" />
+        <joint name="dummy_joint" />
+    </group>
+    <group name="eef_ver1">
+        <link name="mani1_eff" />
+    </group>
+    <group name="eev_ver2">
+        <link name="mani2_link8" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="home_ver1" group="arm_ver1">
+        <joint name="mani1_joint1" value="0" />
+        <joint name="mani1_joint2" value="0" />
+        <joint name="mani1_joint3" value="0" />
+        <joint name="mani1_joint4" value="0" />
+        <joint name="mani1_joint5" value="0" />
+        <joint name="mani1_joint6" value="0" />
+        <joint name="mani1_joint7" value="0" />
+    </group_state>
+    <group_state name="home_ver2" group="arm_ver2">
+        <joint name="mani2_joint1" value="0" />
+        <joint name="mani2_joint2" value="0" />
+        <joint name="mani2_joint3" value="0" />
+        <joint name="mani2_joint4" value="0" />
+        <joint name="mani2_joint5" value="0" />
+        <joint name="mani2_joint6" value="0" />
+        <joint name="mani2_joint7" value="0" />
+    </group_state>
+    <group_state name="pose1_ver1" group="arm_ver1">
+        <joint name="mani1_joint1" value="-0.6509" />
+        <joint name="mani1_joint2" value="0.5459" />
+        <joint name="mani1_joint3" value="-1.2994" />
+        <joint name="mani1_joint4" value="0.7376" />
+        <joint name="mani1_joint5" value="0.9738" />
+        <joint name="mani1_joint6" value="-0.9539" />
+        <joint name="mani1_joint7" value="0.4759" />
+    </group_state>
+    <group_state name="pose1_ver2" group="arm_ver2">
+        <joint name="mani2_joint1" value="0.9459" />
+        <joint name="mani2_joint2" value="-0.5923" />
+        <joint name="mani2_joint3" value="-0.7514" />
+        <joint name="mani2_joint4" value="-0.3448" />
+        <joint name="mani2_joint5" value="0.9459" />
+        <joint name="mani2_joint6" value="0.716" />
+        <joint name="mani2_joint7" value="-0.5746" />
+    </group_state>
+    <group_state name="pose2_ver1" group="arm_ver1">
+        <joint name="mani1_joint1" value="0.8326" />
+        <joint name="mani1_joint2" value="1.0161" />
+        <joint name="mani1_joint3" value="0.0796" />
+        <joint name="mani1_joint4" value="0.7376" />
+        <joint name="mani1_joint5" value="1.3113" />
+        <joint name="mani1_joint6" value="-1.1113" />
+        <joint name="mani1_joint7" value="0.6489" />
+    </group_state>
+    <group_state name="pose2_ver2" group="arm_ver2">
+        <joint name="mani2_joint1" value="-1.4586" />
+        <joint name="mani2_joint2" value="-0.8398" />
+        <joint name="mani2_joint3" value="-0.0265" />
+        <joint name="mani2_joint4" value="-1.0696" />
+        <joint name="mani2_joint5" value="-0.0088" />
+        <joint name="mani2_joint6" value="-1.3171" />
+        <joint name="mani2_joint7" value="-0.1503" />
+    </group_state>
+<group_state name="pose3_ver1" group="arm_ver1">
+        <joint name="mani1_joint1" value="1.317" />
+        <joint name="mani1_joint2" value="0.8314" />
+        <joint name="mani1_joint3" value="0.6453" />
+        <joint name="mani1_joint4" value="0.8102" />
+        <joint name="mani1_joint5" value="0.7141" />
+        <joint name="mani1_joint6" value="-0.1082" />
+        <joint name="mani1_joint7" value="0.5335" />
+    </group_state>
+    <group_state name="pose3_ver2" group="arm_ver2">
+        <joint name="mani2_joint1" value="1.5514" />
+        <joint name="mani2_joint2" value="-1.2072" />
+        <joint name="mani2_joint3" value="-0.3801" />
+        <joint name="mani2_joint4" value="-0.2387" />
+        <joint name="mani2_joint5" value="1.4586" />
+        <joint name="mani2_joint6" value="0.716" />
+        <joint name="mani2_joint7" value="0.3448" />
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="hand1" parent_link="mani1_link7" group="eef_ver1" />
+    <end_effector name="hand2" parent_link="mani2_link7" group="eev_ver2" />
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="dummy_link" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="mani1_base" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="mani1_link1" reason="Default" />
+    <disable_collisions link1="base_link" link2="mani1_link2" reason="Never" />
+    <disable_collisions link1="base_link" link2="mani1_link3" reason="Never" />
+    <disable_collisions link1="base_link" link2="mani1_link4" reason="Never" />
+    <disable_collisions link1="base_link" link2="mani2_base" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="mani2_link2" reason="Never" />
+    <disable_collisions link1="base_link" link2="mani2_link3" reason="Never" />
+    <disable_collisions link1="base_link" link2="mani2_link4" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani1_eff" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani1_link1" reason="Adjacent" />
+    <disable_collisions link1="mani1_base" link2="mani1_link2" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani1_link3" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani1_link4" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani1_link5" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani1_link6" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani1_link7" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani2_base" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani2_link2" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani2_link3" reason="Never" />
+    <disable_collisions link1="mani1_base" link2="mani2_link4" reason="Never" />
+    <disable_collisions link1="mani1_eff" link2="mani1_link1" reason="Never" />
+    <disable_collisions link1="mani1_eff" link2="mani1_link2" reason="Never" />
+    <disable_collisions link1="mani1_eff" link2="mani1_link3" reason="Never" />
+    <disable_collisions link1="mani1_eff" link2="mani1_link4" reason="Never" />
+    <disable_collisions link1="mani1_eff" link2="mani1_link5" reason="Never" />
+    <disable_collisions link1="mani1_eff" link2="mani1_link6" reason="Never" />
+    <disable_collisions link1="mani1_eff" link2="mani1_link7" reason="Adjacent" />
+    <disable_collisions link1="mani1_link1" link2="mani1_link2" reason="Adjacent" />
+    <disable_collisions link1="mani1_link1" link2="mani1_link3" reason="Never" />
+    <disable_collisions link1="mani1_link1" link2="mani1_link4" reason="Never" />
+    <disable_collisions link1="mani1_link1" link2="mani1_link5" reason="Never" />
+    <disable_collisions link1="mani1_link1" link2="mani1_link6" reason="Never" />
+    <disable_collisions link1="mani1_link1" link2="mani1_link7" reason="Never" />
+    <disable_collisions link1="mani1_link1" link2="mani2_base" reason="Never" />
+    <disable_collisions link1="mani1_link1" link2="mani2_link2" reason="Never" />
+    <disable_collisions link1="mani1_link1" link2="mani2_link3" reason="Never" />
+    <disable_collisions link1="mani1_link1" link2="mani2_link4" reason="Never" />
+    <disable_collisions link1="mani1_link2" link2="mani1_link3" reason="Adjacent" />
+    <disable_collisions link1="mani1_link2" link2="mani1_link4" reason="Never" />
+    <disable_collisions link1="mani1_link2" link2="mani1_link5" reason="Never" />
+    <disable_collisions link1="mani1_link2" link2="mani1_link6" reason="Never" />
+    <disable_collisions link1="mani1_link2" link2="mani1_link7" reason="Never" />
+    <disable_collisions link1="mani1_link2" link2="mani2_base" reason="Never" />
+    <disable_collisions link1="mani1_link2" link2="mani2_link2" reason="Never" />
+    <disable_collisions link1="mani1_link2" link2="mani2_link3" reason="Never" />
+    <disable_collisions link1="mani1_link2" link2="mani2_link4" reason="Never" />
+    <disable_collisions link1="mani1_link3" link2="mani1_link4" reason="Adjacent" />
+    <disable_collisions link1="mani1_link3" link2="mani1_link5" reason="Never" />
+    <disable_collisions link1="mani1_link3" link2="mani1_link6" reason="Never" />
+    <disable_collisions link1="mani1_link3" link2="mani1_link7" reason="Never" />
+    <disable_collisions link1="mani1_link3" link2="mani2_base" reason="Never" />
+    <disable_collisions link1="mani1_link3" link2="mani2_link2" reason="Never" />
+    <disable_collisions link1="mani1_link3" link2="mani2_link3" reason="Never" />
+    <disable_collisions link1="mani1_link4" link2="mani1_link5" reason="Adjacent" />
+    <disable_collisions link1="mani1_link4" link2="mani1_link6" reason="Never" />
+    <disable_collisions link1="mani1_link4" link2="mani1_link7" reason="Never" />
+    <disable_collisions link1="mani1_link4" link2="mani2_base" reason="Never" />
+    <disable_collisions link1="mani1_link5" link2="mani1_link6" reason="Adjacent" />
+    <disable_collisions link1="mani1_link5" link2="mani1_link7" reason="Never" />
+    <disable_collisions link1="mani1_link6" link2="mani1_link7" reason="Adjacent" />
+    <disable_collisions link1="mani2_base" link2="mani2_link2" reason="Adjacent" />
+    <disable_collisions link1="mani2_base" link2="mani2_link3" reason="Never" />
+    <disable_collisions link1="mani2_base" link2="mani2_link4" reason="Never" />
+    <disable_collisions link1="mani2_base" link2="mani2_link5" reason="Never" />
+    <disable_collisions link1="mani2_base" link2="mani2_link6" reason="Never" />
+    <disable_collisions link1="mani2_base" link2="mani2_link7" reason="Never" />
+    <disable_collisions link1="mani2_base" link2="mani2_link8" reason="Never" />
+    <disable_collisions link1="mani2_link2" link2="mani2_link3" reason="Adjacent" />
+    <disable_collisions link1="mani2_link2" link2="mani2_link4" reason="Never" />
+    <disable_collisions link1="mani2_link2" link2="mani2_link5" reason="Never" />
+    <disable_collisions link1="mani2_link2" link2="mani2_link6" reason="Never" />
+    <disable_collisions link1="mani2_link2" link2="mani2_link7" reason="Never" />
+    <disable_collisions link1="mani2_link2" link2="mani2_link8" reason="Never" />
+    <disable_collisions link1="mani2_link3" link2="mani2_link4" reason="Adjacent" />
+    <disable_collisions link1="mani2_link3" link2="mani2_link5" reason="Never" />
+    <disable_collisions link1="mani2_link3" link2="mani2_link6" reason="Never" />
+    <disable_collisions link1="mani2_link3" link2="mani2_link7" reason="Never" />
+    <disable_collisions link1="mani2_link3" link2="mani2_link8" reason="Never" />
+    <disable_collisions link1="mani2_link4" link2="mani2_link5" reason="Adjacent" />
+    <disable_collisions link1="mani2_link4" link2="mani2_link6" reason="Never" />
+    <disable_collisions link1="mani2_link4" link2="mani2_link7" reason="Never" />
+    <disable_collisions link1="mani2_link4" link2="mani2_link8" reason="Never" />
+    <disable_collisions link1="mani2_link5" link2="mani2_link6" reason="Adjacent" />
+    <disable_collisions link1="mani2_link5" link2="mani2_link7" reason="Never" />
+    <disable_collisions link1="mani2_link5" link2="mani2_link8" reason="Never" />
+    <disable_collisions link1="mani2_link6" link2="mani2_link7" reason="Adjacent" />
+    <disable_collisions link1="mani2_link6" link2="mani2_link8" reason="Never" />
+    <disable_collisions link1="mani2_link7" link2="mani2_link8" reason="Adjacent" />
+</robot>
