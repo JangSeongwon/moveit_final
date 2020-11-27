@@ -1,0 +1,44 @@
+<launch>
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <!-- We resume the logic in empty_world.launch -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="cat '$(find mani1_config)/urdf/mani1_config.urdf'" /> 
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find final_gazebo)/config/robotic_arm_control.yaml" command="load"/>
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+	args="-urdf -model mani1_config -param robot_description"/> 
+
+  <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" ns="/mani1_config" args="mani1_joint1_controller
+					  	     mani1_joint2_controller
+					          mani1_joint3_controller
+					          mani1_joint4_controller
+					          mani1_joint5_controller
+					          mani1_joint6_controller
+					          mani1_joint7_controller
+                                   joint_state_controller"/>
+
+<!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/mani1_config/joint_states" />
+  </node>
+
+</launch>
