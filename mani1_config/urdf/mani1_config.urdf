@@ -647,7 +647,7 @@
     type="revolute">
     <origin
       xyz="0 -0.3209 0"
-      rpy="1.5708 2.6193E-32 0" />
+      rpy="1.5708 0 0" />
     <parent
       link="mani1_link7" />
     <child
@@ -1188,7 +1188,7 @@
     name="mani2_joint7"
     type="revolute">
     <origin
-      xyz="0 -0.16398 0"
+      xyz="0 -0.1745 0"
       rpy="1.5708 0 -1.2246E-16" />
     <parent
       link="mani2_link7" />
