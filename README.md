@@ -27,5 +27,12 @@ https://answers.ros.org/question/320990/moveit-unable-to-identify-any-set-of-con
 
 1. roslaunch final_gazebo robotic_arm_bringup_gazebo.launch   
 
-2. roslaunch final_gazebo robotic_arm_bringup_rviz.launch   
+2. roslaunch final_gazebo robotic_arm_bringup_rviz.launch      
+
+
+--------------------------------
+
+ver2. limit   
+joint 4 : +- 120   
+joint 5 : +- 130
 
