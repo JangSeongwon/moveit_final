@@ -34,5 +34,7 @@ https://answers.ros.org/question/320990/moveit-unable-to-identify-any-set-of-con
 
 ver2. limit   
 joint 4 : +- 120   
-joint 5 : +- 130
+joint 5 : +- 130   
+
+joint 6만 CCW가 + 방향 이므로 작동 시 확인 바람   
 
